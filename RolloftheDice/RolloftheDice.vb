@@ -1,6 +1,17 @@
-﻿Imports System.Windows.Markup
+﻿'Jacob Horsley
+'RCET 0265
+'Spring 2025
+'Address Label Program
+'URL: https://github.com/horsjaco117/RolloftheDice
 
-Public Class Form1
+Option Strict On
+Option Explicit On
+
+Imports System.Windows.Markup
+
+
+
+Public Class RolloftheDice
     Dim diceCounter(12) As Integer
     Sub diceRoll()
 
@@ -25,13 +36,13 @@ Public Class Form1
         Return CInt(Math.Floor(temp)) 'min isn't included
     End Function
 
-    Private Sub RollButton_Click(sender As Object, e As EventArgs) Handles RollButton.Click
+    Private Sub RollButton_Click(sender As Object, e As EventArgs) Handles RollButton.Click 'Clicking this button displays all values 
         diceRoll()
 
         Dim header As String = ""
         Dim width As Integer = 6
 
-        ListBox1.Items.Clear()
+        ListBox1.Items.Clear() 'values cleared
         ListBox1.Items.Add("Roll of The Dice")
         ListBox1.Items.Add("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 
@@ -52,24 +63,25 @@ Public Class Form1
 
         ListBox1.Items.Add("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 
+        'as the numbers add up the spaces don't line up. 
     End Sub
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click 'Info cleared
 
-        ListBox1.Items.Clear()
-        Array.Clear(diceCounter, 0, diceCounter.Length)
+        ListBox1.Items.Clear() 'shuts off screen
+        Array.Clear(diceCounter, 0, diceCounter.Length) 'Resets number
 
     End Sub
 
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click 'Closes the program
         Me.Close()
     End Sub
 
     Private Sub MenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.Click
-        MsgBox("You found an Easter Egg!")
+        MsgBox("You found an Easter Egg!") 'Instructions didn't specify menu content
     End Sub
 
     Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
-        MsgBox("Hit the buttons and see which numbers appear")
+        MsgBox("Hit the buttons and see which numbers appear") 'Shows help
     End Sub
 End Class
